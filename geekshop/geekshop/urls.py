@@ -19,9 +19,10 @@ import mainapp.views as mainapp
 from django.conf import settings
 from django.conf.urls.static import static
 
+
 urlpatterns = [
     path('shop/', include('mainapp.urls')),
-    path('admin/', admin.site.urls),
+    path('admin/', include('adminapp.urls', namespace='admin')),
     path('', mainapp.main, name='main'),
     path('test/', mainapp.temp, name='temp'),
     path('auth/', include('authapp.urls', namespace='auth')),
